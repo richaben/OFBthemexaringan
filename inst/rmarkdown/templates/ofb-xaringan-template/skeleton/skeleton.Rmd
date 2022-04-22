@@ -1,0 +1,234 @@
+---
+title: "Title"
+subtitle: "Subtitle"
+author: "Author name"
+institute: "OFB, Direction régionale XXX, Service XXXXX"
+date: "06/04/2022 (màj. : `r format(Sys.time(), '%d/%m/%Y')`)"
+output:
+  xaringan::moon_reader:
+    chakra: libs/remark-latest.min.js
+    lib_dir: libs
+    css: ["default", "assets/ofb-theme.css","assets/ofb-fonts.css"]
+    self_contained: true
+    includes:
+      after_body: "assets/img/insert-logo.html"
+    nature:
+      titleSlideClass: [middle, left]
+      highlightStyle: github
+      highlightLines: true
+      countIncrementalSlides: false
+      highlightLanguage: r
+      ratio: "16:9"
+      seal: false
+      slideNumberFormat: |
+        <div class="progress-bar-container">
+          <div class="progress-bar" style="width: calc(%current% / %total% * 100%);">
+          </div>
+        </div>
+---
+
+```{r setup, echo = F}
+# to solve the display of html widgets 
+options(htmltools.preserve.raw = FALSE)
+
+# knitr parameters
+knitr::opts_chunk$set(
+  comment = "#",
+  #cache = TRUE,
+  collapse = TRUE,
+  warning = FALSE,
+  message = FALSE,
+  #fig.width = 7,
+  #fig.height = 5.25,
+  fig.align = 'center',
+  fig.retina = 3
+)
+
+# Some tips with Xaringan Extra
+xaringanExtra::use_xaringan_extra(c("tile_view", "animate_css", "tachyons"))
+xaringanExtra::use_extra_styles(
+  hover_code_line = TRUE,         #<<
+  mute_unhighlighted_code = F  #<<
+)
+xaringanExtra::use_editable(expires = 1)
+xaringanExtra::use_panelset()
+
+## write on slide
+# xaringanExtra::use_scribble()
+
+## search within slides
+# xaringanExtra::use_search(show_icon = TRUE)
+```
+
+
+```{r loading, echo = FALSE}
+# Packages loading
+library(tidyverse)
+library(patchwork)
+
+# functions
+`%ni%` <- Negate('%in%')
+
+# ggplot theme
+theme_set(theme_bw(base_size = 9) +
+            theme(title = element_text(face='bold')))
+```
+
+---
+# Title 1
+## Sub-title 1
+### Sub-subtitle 3
+
+--
+
+\\(\rightarrow\\) **Some details**
+
+--
+
+Say it with colours<sup>1</sup> : **.green1[green], .green2[green], .blue1[blue], .blue2[blue], .brown1[brown], .brown2[brown], .orange[orange], .yellow[yellow], and .grey[grey]**.
+
+.footnote[<sup>1</sup>A footnote ; Palette colors from OFB graphics.]
+
+--
+
+Font size reduced for long text :
+
+.resume80[Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam mi felis, pellentesque ut sagittis sit amet, tempor ut ipsum. Cras vel urna egestas, elementum lorem quis, suscipit tellus. Aliquam ut auctor sapien, nec consequat purus. Donec volutpat elit nec elementum ultricies. In ut semper leo. Mauris maximus ornare nibh eu tristique. Duis egestas sem vel molestie ornare. Vivamus dolor dui, varius vitae pharetra vitae, aliquet vitae turpis.
+
+Aliquam porttitor suscipit nisl blandit posuere. Donec porttitor purus velit, non mattis dolor blandit vel. Ut malesuada eros erat, et lacinia mi consequat sed. Sed luctus sapien quis ipsum consectetur ultrices. Praesent vitae felis sit amet urna laoreet rutrum tincidunt eget nibh. Ut interdum ligula quis volutpat tristique. In sit amet urna malesuada, auctor elit a, aliquet ex.
+
+Ut imperdiet, purus vitae finibus lobortis, nulla lectus vestibulum dolor, eget auctor lacus massa et lacus. Nullam dapibus convallis dolor vitae lobortis. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur commodo auctor ex sit amet hendrerit. Duis accumsan lobortis massa, ut pretium velit tincidunt et. Quisque volutpat magna a interdum iaculis. Integer eu interdum libero. Pellentesque fermentum id libero ac malesuada. Phasellus volutpat placerat libero vitae vestibulum. Curabitur cursus nulla sit amet sem lobortis condimentum. Mauris eget mi eu ligula faucibus eleifend. Aenean sodales dignissim lorem tincidunt feugiat. Nam in convallis metus, eget sagittis enim. Quisque nec ex nec sapien bibendum malesuada. ] 
+
+
+---
+# Title 2
+## Sub-title 2
+
+--
+
+Example for lists :
+
+.pull-left[Ordered list on **left-side**:
+
+1. first element
+1. second element
+1. third element] 
+
+.pull-right[Bullet list on **right-side** :
+- first element
+- second element
+- third element]
+
+--
+<br>
+## Sub-title 3 `r emo::ji('warning')`
+
+
+> **A blockquote**
+>
+> Hello World !
+>
+
+
+
+--
+
+---
+# `R code` example for tables with `DT package` 
+
+
+```{r, out.height = "50px"}
+# R code
+DT::datatable(
+  head(iris, 100),fillContainer = F,rownames = FALSE, extensions = "Buttons",
+                options = list(dom = 'tBp', buttons = c("csv","excel"), 
+                               pageLength = 8)
+)
+```
+
+
+---
+# `R code` example of Slide with Panelset
+    
+.panelset[
+.panel[.panel-name[R Code]
+    
+```{r panel-chunk, fig.show='hide',message=FALSE}
+library(ggplot2) #<<
+
+if (!require("templatesofb")) 
+  devtools::install_gitlab(
+    repo = "cedric.mondy1/templatesofb", 
+    host = "https://gitlab.ofb.fr")
+
+ggplot(data = iris) +
+  aes(x = Sepal.Length, y = Petal.Length, fill = Species) +
+  geom_point(pch=21,size=2.5,alpha=0.9,col = 'black') +
+  templatesOFB::scale_fill_ofb() + 
+  templatesOFB::theme_ofb() +
+  labs(title = "Plot with {templatesofb} package by C.Mondy")
+
+```
+]
+    
+.panel[.panel-name[Plot]
+```{r ref.label="panel-chunk", echo=FALSE, fig.width=8, fig.height=5.5}
+```
+]
+]
+
+---
+# HTML widgets
+
+```{r, echo=FALSE, out.width = '100%'}
+library(leaflet)
+
+content <- paste(sep = "<br/>",
+  "<b><a href='https://www.ofb.gouv.fr/normandie'>OFB DR Normandie</a></b>",
+  "Where I am !"
+)
+
+leaflet() %>% addTiles(options = providerTileOptions(minZoom=15, maxZoom=18)) %>%
+  addPopups(-0.681293,49.038357, content,
+    options = popupOptions(closeButton = FALSE)
+  )
+```
+
+
+---
+class: center, middle, inverse
+
+## .font200[Détails par départements]
+
+```{r, message=FALSE, warning=FALSE, results='asis', echo=F, eval=T}
+dpts <- data.frame(nom = c("Calvados","Eure","Manche","Orne","Seine-Maritime"),
+                   code = c(14, 27, 50, 61, 76))
+
+for (i in 1:nrow(dpts)) {
+  cat("\n\n---\n")
+  cat("  \n#",  paste0(dpts$nom[i], " (", dpts$code[i],")"), "\n")
+  plot(rnorm(100))
+}
+```
+
+---
+class: center, middle, inverse, hide-logo
+
+## \\(\rightarrow\\) Let's go ! `r emo::ji('smiley')`
+
+.center[
+![Saw](https://media.giphy.com/media/PmXqsV7Jqz7JpkcQ3b/giphy.gif)
+
+.font150[Click] .font100[Click] .font80[Click] .font60[Click] .font40[Click]...
+]
+
+---
+class: middle, inverse, hide-logo
+background-image: url('assets/img/page_fin_static.svg')
+
+# Thanks for your attention !
+
+Slides made with `r fontawesome::fa("r-project", fill = "steelblue")` and the awesome  [xaringan](https://github.com/yihui/xaringan) package.
+
+
+

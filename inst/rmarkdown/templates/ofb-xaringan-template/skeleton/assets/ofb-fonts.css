@@ -1,0 +1,55 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@300;400&display=swap');
+
+@font-face {
+  font-family: 'Marianne';
+  src: url('fonts/Marianne-Regular.otf');
+  font-style: normal;
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: 'Marianne';
+  src: url('fonts/Marianne-Thin.otf');
+  font-style: normal;
+  font-weight: 100;
+}
+
+@font-face {
+  font-family: 'Marianne';
+  src: url('fonts/Marianne-Medium.otf');
+  font-style: normal;
+  font-weight: 500;
+}
+
+@font-face {
+  font-family: 'Marianne';
+  src: url('fonts/Marianne-Light.otf');
+  font-style: normal;
+  font-weight: 300;
+}
+
+@font-face {
+  font-family: 'Marianne';
+  src: url('fonts/Marianne-ExtraBold.otf');
+  font-style: normal;
+  font-weight: 800;
+}
+
+@font-face {
+  font-family: 'Marianne';
+  src: url('fonts/Marianne-Bold.otf');
+  font-style: normal;
+  font-weight: 700;
+}
+
+body {
+  font-family: "Marianne", Arial, sans-serif;
+}
+
+h1, h2, h3 {
+  font-family: "Marianne", Arial, sans-serif;
+}
+
+.remark-code, .remark-inline-code {
+  font-family: 'Roboto Mono', sans-serif;
+}

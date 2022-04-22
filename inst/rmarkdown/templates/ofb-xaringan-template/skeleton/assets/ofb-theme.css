@@ -1,0 +1,372 @@
+/*
+OFB-theme CSS for xaringan slides 
+Author: Benoit Richard
+Updated: 2022-04-06
+*/
+
+
+
+/*-- h1, h2, h3 {
+  font-weight: normal;
+  color: #0054A6;
+}--*/
+
+/* hyperlink color */
+a {
+  color: #AE2573;
+  text-decoration: none;
+  border-bottom: 1px solid #AE2573;
+  line-height: 1.2em;
+}
+
+a:hover {
+  border-bottom:      0px;
+}
+
+/*-- HEADINGS in frame --*/
+
+.body {
+  color: #5c5e5e;
+  line-height: 1.2em;
+}
+
+.remark-slide-content h1 {
+  color:              #005EB8;
+  font-size:          30px;
+  line-height:        1.0em;
+}
+
+.remark-slide-content h2 {
+  font-size:          25px;
+  color:              #005EB8;
+  line-height:        1.0em;
+  padding-left: 5%;
+}
+
+.remark-slide-content h3 {
+  font-size:          20px;
+  color:              #005EB8;
+  line-height:        1.0em;
+  padding-left: 7%;
+  
+}
+
+.remark-slide-content h4 {
+  font-size:          18px;
+  line-height:        0.5em;
+  padding-left: 7%;
+}
+
+/*-- PARAGRAPH TEXT   
+.remark-slide-content:not(.title-slide){
+  background-image: url('img/page_content_static.svg');
+  background-size: contain ;
+  background-color: #FFFFFF;
+  border: 0px;
+  font-size: 23px;
+}  --*/
+
+
+
+/*-- HORIZONTAL BARS --*/
+hr {
+  content:            none;
+  display:            block;
+  border:             none;
+  background-color:   #231F20;
+  height:             0.08em;
+}
+
+
+/*-- BOTTOM-OF-SLIDE PROPERTIES --*/
+
+/*-- Footnote --*/
+.footnote {
+  position:           absolute;
+  bottom:             2em;
+  padding-right:      4em;
+  font-size:          50%;
+  line-height:        1.3em;
+}
+
+/*-- Slide number 
+.remark-slide-number {
+  bottom: 18px;
+  color: #000000;
+  position: absolute;
+  right: 20px;
+}--*/
+
+.remark-slide-number {
+  position: inherit;
+}
+
+.remark-slide-number .progress-bar-container {
+  position: absolute;
+  bottom: 0;
+  height: 4px;
+  display: block;
+  left: 0;
+  right: 0;
+}
+
+.remark-slide-number .progress-bar {
+  height: 100%;
+  background-color: #1a9850;
+}
+
+/*-- Hides slide number from title slide --*/  
+.title-slide .remark-slide-number { 
+  display: none; 
+}
+
+/*-- CODE TEXT --*/
+/*-- In-line highlighting within text --*/
+.remark-code, .remark-inline-code {
+  font-size:          70% !important;
+  color:              #231F20;
+  background:         #E8EDEE;
+  border-radius:      3px;
+  padding:            1px 1px 1px 1px;
+  line-height: 1.1em;
+}
+
+/*-- Line highlighting within code --*/
+.remark-code-line-highlighted {
+  background-color: #ffff88 !important;
+}
+
+
+
+/*-- CODE CHUNKS --*/
+
+/*-- Code chunk foreground 
+--*/
+pre code {
+  background:          none;
+  font-size:           20px !important;
+}
+
+
+/*-- INVERSE SLIDE MODIFICATIONS --*/
+/*-- Slide background and text (inverse) --*/
+.inverse {
+  background-color:   #FFFFFF;
+  color:              #585E60;
+  text-shadow:        none;
+}
+/*-- Headings (inverse) --*/
+.inverse h2, .inverse h3 {
+  color:              #585E60;
+  padding-left: 0;
+}
+
+.inverse h1 {
+  color: #FFFFFF;
+}
+
+/*-- CUSTOM CLASS FOR THE TITLE SLIDE --*/
+
+.title-slide {
+    background-image: url('img/page_garde.svg');
+    background-size: contain ;
+    background-color: #FFFFFF;
+    border: 0px;
+  }
+  
+/*-- Headings --*/
+
+.title-slide h1 {
+    font-size: 45px!important;
+    font-weight: bold;
+    width: 75%;
+    line-height: 1.0em;
+    color: #000000;
+    text-shadow: none;
+    padding-top: 20%;
+  }
+
+.title-slide h2 {
+  font-size: 35px!important;
+  font-weight: normal;
+  color: #000000; 
+  width: 70%;
+  line-height: 1em;
+  font-size:  35px;
+  padding-left: 0;
+}
+
+.title-slide h3 {
+  color: #737373; 
+  font-weight: normal;
+  line-height: 1.0em;
+  font-size:  20px;
+  padding-left: 0;
+}
+
+/*-- CUSTOM CLASSES FOR TEXT EMPHASIS --*/
+.blue1      { color:   #003A76 }
+.blue2      { color:   #99D7F7 }
+.green1     { color:   #0E823A }
+.green2     { color:   #9FCA7E }
+.brown1     { color:   #564949 }
+.brown2     { color:   #9A7B67 }
+.red        { color:   #C2133E }
+.orange     { color:   #F39655 }
+.yellow     { color:   #FFD744 }
+.grey       { color:   #737373 }
+
+/* citation in bottomright page*/
+.cite {
+    bottom: 12px;
+    font-style: italic;
+    opacity: .8;
+    position: absolute;
+    right: 100px;
+    font-size: 17px;
+}
+
+/*-- TABLES --*/
+.remark-slide table {
+  font-size: 15px;
+  margin:              auto;
+  border-top:          1px solid #768692;
+  border-bottom:       1px solid #768692;
+}
+
+/*-- Table header --*/
+.remark-slide table thead th {
+  font-size: 15px;
+  border-bottom:       1px solid #768692;
+}
+
+/*-- Table rows (even) --*/
+.remark-slide thead, .remark-slide tfoot, .remark-slide tr:nth-child(even) {
+  font-size: 15px;
+}
+
+
+
+
+
+/* Two-column layout */
+.left-column {
+  color: #777;
+  width: 20%;
+  height: 92%;
+  float: left;
+}
+.left-column h2:last-of-type, .left-column h3:last-child {
+  color: #000;
+}
+.right-column {
+  width: 75%;
+  float: right;
+  padding-top: 1em;
+}
+.pull-left {
+  float: left;
+  width: 47%;
+}
+.pull-right {
+  float: right;
+  width: 47%;
+}
+.pull-right ~ * {
+  clear: both;
+}
+
+
+/* Font size */
+.resume80 {
+    font-size: 80%;
+    text-align: justify;
+    font-style: italic;
+  }
+
+.font10 {
+    font-size: 10%;
+  }
+
+  .font20 {
+    font-size: 20%;
+  }
+
+  .font30 {
+    font-size: 30%;
+  }
+
+  .font40 {
+    font-size: 40%;
+  }
+
+  .font50 {
+    font-size: 50%;
+  }
+
+  .font60 {
+    font-size: 60%;
+  }
+
+  .font70 {
+    font-size: 70%;
+  }
+
+  .font80 {
+    font-size: 80%;
+  }
+
+  .font90 {
+    font-size: 90%;
+  }
+
+  .font100 {
+    font-size: 100%;
+  }
+
+  .font110 {
+    font-size: 110%;
+  }
+
+  .font120 {
+    font-size: 120%;
+  }
+
+  .font130 {
+    font-size: 130%;
+  }
+
+  .font140 {
+    font-size: 140%;
+  }
+
+  .font150 {
+    font-size: 150%;
+  }
+
+  .font160 {
+    font-size: 160%;
+  }
+  .font170 {
+    font-size: 170%;
+  }
+  .font180 {
+    font-size: 180%;
+  }
+  .font190 {
+    font-size: 190%;
+  }
+  .font200 {
+    font-size: 200%;
+  }
+  
+  
+
+
+
+
+/* Bullet style layout */
+
+/*-- blockquote --*/
+  
+

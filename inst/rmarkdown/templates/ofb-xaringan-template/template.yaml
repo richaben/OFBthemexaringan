@@ -1,0 +1,4 @@
+name: OFB xaringan template
+description: >
+   Template for OFB presentation with the xaringan package
+create_dir: FALSE
